@@ -3,9 +3,10 @@ $(document).ready(function() {
 
   $('select').material_select();
 
-  $('#relatorio').on('click', function() {
+  $('#relatorio, #bar, #pizza').on('click', function() {
+    var action_button = this.id;
+    var url_ajax = '';
     $("#bloque").empty();
-    // console.log($('#consultores').val());
     if($('.datepicker_ini').val()==''){
       alert("Seleccione una fecha de inicio.");
       return false;
@@ -18,11 +19,24 @@ $(document).ready(function() {
       alert("Seleccione al menos un consultor.");
       return false;
     }
+    if(action_button=='relatorio'){
+      url_ajax = '/desempenho/detail_receitas/';
+    }
+    else if(action_button=='bar'){
+      url_ajax = '/desempenho/detail_bar/';
+    }
+    else if(action_button=='pizza'){
+      url_ajax = '/desempenho/detail_pizza/';
+    }
+    else{
+      alert("Hubo un error obteniendo la URL para su consulta.");
+      return false;
+    }
     cons = $('#consultores').val();
     fecha_ini = $('.datepicker_ini').val();
     fecha_fin = $('.datepicker_fin').val();
     $.ajax({
-        url: "/desempenho/detail_receitas/",
+        url: url_ajax,
         data: {
           'consultores': cons,
           'fecha_ini': fecha_ini,
@@ -31,10 +45,6 @@ $(document).ready(function() {
         method: "GET",
         dataType: "html"
     }).done(function(data){
-      console.log(data);
-      // alert(data);
-      // alert(JSON.stringify(data));
-      // var returned_html = JSON.stringify(data);
       $("#bloque").empty();
       $("#bloque").html(data);
     }).error(function(data){
@@ -58,6 +68,5 @@ $(document).ready(function() {
     max: max_date,
     closeOnSelect: true // Close upon selecting a date,
   });
-
 
 })

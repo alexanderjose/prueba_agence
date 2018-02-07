@@ -44,7 +44,11 @@ SECRET_KEY = 'va)h&pf@0(y5oq7jp$lqik)x+su1q31m)r@wr1&gm3z^v66bad'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    # Host de PythonAnywhere dode se monto la aplicacion para Agence
+    'agalindez.pythonanywhere.com',
+    'localhost'
+]
 
 
 # Application definition

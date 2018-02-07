@@ -202,7 +202,6 @@ def detail_pizza(request):
         ).values('no_usuario')
         for cno in consultor_nombre_object:
             consultor_nombre = cno.get('no_usuario')
-        total_ganancia = 0
         total_ganancia_consultor = 0
         orden_servicio = CaoOs.objects.filter(
             co_usuario=consultor

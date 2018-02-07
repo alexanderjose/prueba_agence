@@ -5,14 +5,13 @@
   var dict_consultor = {}
 
   $.each(json_to_pizza, function(i, item) {
-    // console.log(item[0]);
-    // console.log(item[1]);
     dict_consultor = {}
     dict_consultor['name'] = item[0]
     dict_consultor['y'] = item[1]
     serie_pizza.push(dict_consultor)
   });
-  // console.log(serie_pizza);
+  console.log(serie_pizza)
+
   options = {
     chart: {
         plotBackgroundColor: null,
@@ -42,7 +41,6 @@
     series: [{
         name: 'Porcentaje de Ganancia',
         colorByPoint: true,
-        // data: data_pizza
         data: [{
             name: 'IE',
             y: 56.33
@@ -74,7 +72,5 @@
   <input type="hidden" id="json_to_pizza" value="{{ json_to_pizza }}">
   <!-- Se pueden hacer todas las modificaciones que se deseen e incrustar el
   grafico donde se desee -->
-  <div id="bloque2">
-
-  </div>
+  <div id="bloque2"></div>
 </div>

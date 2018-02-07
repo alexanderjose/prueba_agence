@@ -8,92 +8,75 @@
   var categories = []
 
   $.each(json_bar, function(i, item) {
-    console.log(item[0]);
-    console.log(item[1]);
     ganancias_promedio_consultores.push(item[1])
     categories.push(item[0])
     costo_fijo_promedio.push(cfp)
-    // ganancias_promedio_consultores['y'] = item[1]
-    // ganancias_promedio_consultores['type'] = 'column'
-    // serie_bar.push(ganancias_promedio_consultores)
   });
-
-  console.log(ganancias_promedio_consultores);
-  console.log(costo_fijo_promedio);
-  console.log(categories);
-
-  // dict_average = {}
-  // dict_average['name'] = 'Line'
-  // dict_average['y'] = [2500, 2500, 2500, 2800, 3000]
-  // dict_average['type'] = 'spline'
-  // serie_bar.push(dict_average)
-
-  // alert(serie_bar);
 
   options = {
     chart: {
-        zoomType: 'xy'
+      zoomType: 'xy'
     },
     title: {
-        text: 'Ganancias de los consultores, respecto a la media de la empresa.'
+      text: 'Ganancias de los consultores, respecto a la media de la empresa.'
     },
     subtitle: {
-        text: ''
+      text: ''
     },
     xAxis: [{
-        categories: categories,
-        crosshair: true
+      categories: categories,
+      crosshair: true
     }],
     yAxis: [{ // Primary yAxis
-        labels: {
-            format: 'R${value}',
-            style: {
-                color: Highcharts.getOptions().colors[1]
-            }
-        },
-        title: {
-            text: 'Costo fijo promedio',
-            style: {
-                color: Highcharts.getOptions().colors[1]
-            }
+      labels: {
+        format: 'R${value}',
+        style: {
+          color: Highcharts.getOptions().colors[1]
         }
-    }, { // Secondary yAxis
-        title: {
-            text: 'Ganancias promedio de consultores',
-            style: {
-                color: Highcharts.getOptions().colors[0]
-            }
-        },
-        labels: {
-            format: 'R${value}',
-            style: {
-                color: Highcharts.getOptions().colors[0]
-            }
-        },
-        opposite: true
+      },
+      title: {
+        text: 'Costo fijo promedio',
+        style: {
+          color: Highcharts.getOptions().colors[1]
+        }
+      }
+    },
+    { // Secondary yAxis
+      title: {
+        text: 'Ganancias promedio de consultores',
+        style: {
+          color: Highcharts.getOptions().colors[0]
+        }
+      },
+      labels: {
+        format: 'R${value}',
+        style: {
+          color: Highcharts.getOptions().colors[0]
+        }
+      },
+      opposite: true
     }
   ],
-    tooltip: {
-        shared: true
+  tooltip: {
+      shared: true
     },
     legend: {
-        layout: 'vertical',
-        align: 'left',
-        x: 120,
-        verticalAlign: 'top',
-        y: 100,
-        floating: true,
-        backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+      layout: 'vertical',
+      align: 'left',
+      x: 120,
+      verticalAlign: 'top',
+      y: 100,
+      floating: true,
+      backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
     },
     series: [{
-        name: 'Ganancia:',
-        type: 'column',
-        yAxis: 1,
-        data: ganancias_promedio_consultores,
-        tooltip: {
-            valueSuffix: ' R$'
-        }
-
+      name: 'Ganancia:',
+      type: 'column',
+      yAxis: 1,
+      data: ganancias_promedio_consultores,
+      tooltip: {
+          valueSuffix: ' R$'
+      }
     }, {
         name: 'Costo fijo promedio',
         type: 'spline',
@@ -102,8 +85,7 @@
             valueSuffix: ' R$'
         }
     }]
-}
-
+  }
   Highcharts.chart('bloque2', options);
 
 </script>
