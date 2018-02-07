@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block content %}
+<br><br><br>
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      <div class="col s6 left-align">
+        <label>Fecha Inicio:</label>
+        <input type="text" class="datepicker_ini">
+      </div>
+      <div class="col s6 left-align">
+        <label>Fecha Final:</label>
+        <input type="text" class="datepicker_fin">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    {% if consultores %}
+      <div class="">
+        <input type="hidden" id="max_year" value="{{ max_year }}">
+        <input type="hidden" id="min_year" value="{{ min_year }}">
+      </div>
+      <div class="input-field col s12">
+        <select id="consultores" multiple>
+          {% for consultor in consultores %}
+            <option value="{{ consultor.co_usuario }}">{{ consultor.no_usuario }}</option>
+          {% endfor %}
+        </select>
+        <label>Consultores:</label>
+      </div>
+    {% else %}
+      <div class="input-field col s10 offset-s1">
+        <span>No hay informacion de consultores para mostrar.</span>
+      </div>
+    {% endif %}
+  </div>
+  <div class="row">
+    <div class="col s4 center-align">
+      <a id="relatorio" class="waves-effect waves-light btn"><i class="material-icons left">format_indent_increase</i>Relatório</a>
+    </div>
+    <div class="col s4 center-align">
+      <a id="bar" class="waves-effect waves-light btn"><i class="material-icons left">insert_chart</i>Grafico</a>
+    </div>
+    <div class="col s4 center-align">
+      <a id="pizza" class="waves-effect waves-light btn"><i class="material-icons left">pie_chart</i>Pizza</a>
+    </div>
+  </div>
+  <div id="bloque" class="col s12"></div>
+</div>
+{% endblock %}
+
+{% block javascript_custom %}
+  <script src="{% static 'js/desempenho.js' %}"></script>
+  <script src="{% static 'js/pizza.js' %}"></script>
+  <script src="{% static 'js/bar.js' %}"></script>
+{% endblock %}

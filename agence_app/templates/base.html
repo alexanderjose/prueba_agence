@@ -1,0 +1,65 @@
+{% load static i18n %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Proyecto Agence{% endblock title %}</title>
+
+    {% block css %}
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <!-- <link href="{% static 'css/materialize.min.css' %}" rel="stylesheet"> -->
+    <link href="{% static 'css/desempenho.css' %}" rel="stylesheet">
+    <!-- <link href="{% static 'fonts/font-awesome.min.css' %}" rel="stylesheet"> -->
+    {% endblock %}
+
+    {% block css_custom %}{% endblock %}
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo right">Logo</a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+          <li><a href="#"><i class="material-icons left">home</i>Agence</a></li>
+          <li><a href="#"><i class="material-icons left">assignment_turned_in</i>Projetos</a></li>
+          <li><a href="#"><i class="material-icons left">content_paste</i>Administrativo</a></li>
+          <li><a href="#"><i class="material-icons left">people</i>Comercial</a></li>
+          <li><a href="#"><i class="material-icons left">assignment</i>Financeiro</a></li>
+          <li><a href="#"><i class="material-icons left">person</i>Usuario</a></li>
+          <li><a href="#"><i class="material-icons left">clear</i>Sair</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    {% block content %}
+      <p>Use this document as a way to quick start any new project.</p>
+    {% endblock content %}
+
+    {% block modal %}{% endblock modal %}
+
+    {% block javascript %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <!-- <script src="{% static 'js/jquery-2.2.4.min.js' %}"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <!-- <script src="{% static 'js/materialize.min.js' %}"></script> -->
+    <!-- <script src="{% static 'js/highcharts.js' %}"></script>
+    <script src="{% static 'js/highcharts-more.js' %}"></script>
+    <script src="{% static 'js/highcharts-3d.js' %}"></script> -->
+    <script src="https://code.highcharts.com/highcharts.src.js"></script>
+    {% endblock %}
+
+    {% block javascript_custom %}{% endblock %}
+
+  </body>
+</html>

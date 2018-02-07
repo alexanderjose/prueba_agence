@@ -1,0 +1,73 @@
+<div class="">
+  {% if items %}
+    {% for item in items %}
+      <div class="row">
+        <table id="tabla_ganancias" class="table-bordered responsive-table">
+          <thead>
+            <tr>
+              <td>{{ item.consultor }}</td>
+            </tr>
+            <tr>
+              <th>Período</th>
+              <th>Receita Líquida</th>
+              <th>Custo Fixo</th>
+              <th>Comissão</th>
+              <th>Lucro</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for data in item.data %}
+              <tr>
+                <td>
+                  {% if data.month == 1 %}
+                    Janeiro
+                  {% elif data.month == 2 %}
+                    Fevereiro
+                  {% elif data.month == 3 %}
+                    Março
+                  {% elif data.month == 4 %}
+                    Abril
+                  {% elif data.month == 5 %}
+                    Maio
+                  {% elif data.month == 6 %}
+                    Junho
+                  {% elif data.month == 7 %}
+                    Julho
+                  {% elif data.month == 8 %}
+                    Agosto
+                  {% elif data.month == 9 %}
+                    Setembro
+                  {% elif data.month == 10 %}
+                    Outubro
+                  {% elif data.month == 11 %}
+                    Novembro
+                  {% elif data.month == 12 %}
+                    Dezembro
+                  {% else %}
+                    - -
+                  {% endif %} - {{ data.year }}
+                </td>
+                <td>{{ data.ganancias }}</td>
+                <td>{{ data.costo_fijo }}</td>
+                <td>{{ data.comision }}</td>
+                <td>{{ data.total }}</td>
+              </tr>
+            {% endfor %}
+            {% for total in item.totales %}
+              <tr>
+                <th>SALDO</th>
+                <th>{{ total.rl_totales }}</th>
+                <th>{{ total.cf_totales }}</th>
+                <th>{{ total.vc_totales }}</th>
+                <th>{{ total.to_totales }}</th>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        <br>
+      </div>
+    {% endfor %}
+  {% else %}
+    no
+  {% endif %}
+</div>
